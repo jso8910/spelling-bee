@@ -22,7 +22,7 @@ open("wordsNoProf.json", "w").write(json.dumps([word for word in j if not word['
 To remove obscure words and save it to a file called `noObscureProfane.json`. This doesn't work well beacuse I have no idea how the score works and it is much easier to manually remove words.
 
 ```py
-f = open('wordsNoProf.json"')
+f = open('wordsNoProf.json')
 j = json.loads(f.read())
 open("noObscureProfane.json", "w").write(json.dumps(sorted(j, key=lambda x: x['score'])[int(len(j) / 2) + int(len(j) / 7):]))
 ```
