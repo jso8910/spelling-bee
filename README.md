@@ -29,3 +29,18 @@ open("noObscureProfane.json", "w").write(json.dumps(sorted(j, key=lambda x: x['s
 You can replace the `int(len(j) / 2) + int(len(j) / 7)` for different amounts cut out, in this case just over half (to be exact 9/14). 
 
 The last script, `spellingwords.py`. This essentially tries as many combinations as possible until you get a combination of letters that has at least one panagram. It only returns words that have more than 3 letters, have the middle letter in them, and only letters in the letters list (which contains the middle letter). If it finds this and a panagram then it will notify you. It will tell you the panagrams, the letters, the words, and the number of words. It then lets you decide whether this isn't enough (if you look over the words and decide there aren't enough good words or whatever reasons). This means that you are highly unlikely to miss any words as there are 60 thousand words included. If you want to you can get the `unix-words` file from the Github repo that includes `ospd.txt` and repeat the steps just changing the filenames. However this will contain tens of thousands of useless words. I haven't been able to filter out the proper nouns. To do that I would need to scrape a website like Cambridge because it appears that there aren't any free APIs that give that information.
+
+Also, if you want to use the `noObscureProfane.json` file for the final script you can just apply this patch.
+```diff
+--- a/spellingwords.py	2021-07-16 21:38:21.748932876 +0800
++++ b/spellingwords.py	2021-07-16 21:38:47.075549434 +0800
+@@ -3,7 +3,7 @@
+ import random
+ import sys
+ 
+-with open("wordsNoProf.json") as f:
++with open("noObscureProfane.json") as f:
+     j = json.loads(f.read())
+ 
+ while True:
+ ```
