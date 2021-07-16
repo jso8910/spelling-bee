@@ -27,7 +27,7 @@ while True:
         print(f"Center letter: {middle_letter}")
         print(f"Other letters: {' '.join(letters[1:])}")
         print(f"Number of words: {len(nj)}")
-        print(f"Words: \n {nj}")
+        print(f"Words: {nj}")
         tocontinue = input("Do you want to continue trying for more words? [y/N] ")
         if tocontinue.lower() != 'y':
             break
